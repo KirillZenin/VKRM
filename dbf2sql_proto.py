@@ -17,7 +17,7 @@ from flask_babel import lazy_gettext as _l
 
 app = Flask(__name__)
 # needed for hidden.tag in /templates/index.html
-app.config['SECRET_KEY'] = 'Bloodghast'
+app.config['SECRET_KEY'] = 'BloodghastZK'
 app.config['LANGUAGES'] = ['en', 'ru']
 babel = Babel(app)
 
@@ -36,8 +36,7 @@ class FileForm(FlaskForm):
                        choices=[("SQL", _l("Export to SQL dump file")),
                                 ("CSV", _l("Export to CSV file"))],
                        validators=[DataRequired()])  # requires a choice so no empty form is sent
-    # allows to manually choose codec
-    codec = StringField(label=_l('Codec (Optional)'))
+    codec = StringField(label=_l('Codec (Optional)'))  # allows to manually choose codec
     submit = SubmitField(_l('Convert'))  # submit convertation
 
 
@@ -57,15 +56,11 @@ def index():
                             writer = csv.writer(csv_out)
                             if form.codec.data == '':  # using autodetect, if codec not chosen manually
                                 dbf = dbfread.DBF(item.stream)
-                            else:
-                                # using manually specified codec
-                                dbf = dbfread.DBF(
-                                    item.stream, encoding=form.codec.data)
-                            # writing row of headers in CSV
-                            writer.writerow(dbf.field_names)
+                            else:  # using manually specified codec
+                                dbf = dbfread.DBF(item.stream, encoding=form.codec.data)
+                            writer.writerow(dbf.field_names)  # writing row of headers in CSV
                             for record in dbf:
-                                # writing rows of data in CSV
-                                writer.writerow(list(record.values()))
+                                writer.writerow(list(record.values()))  # writing rows of data in CSV
                             zipf.writestr(os.path.splitext(item.filename)[0] + '.csv', csv_out.getvalue())  # packing to zip
                     memzip.seek(0)  # moving at beginning of archive file
                     return send_file(memzip, mimetype='application/zip',

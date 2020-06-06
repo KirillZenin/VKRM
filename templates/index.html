@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+{% if err is defined %}
+<h1>{{ _('Error') }} : {{ err }}</h1>
+<p>{{ advice }}</p>
+{% endif %}
+<form action="" method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <p>{{ form.file.label }}</p>
+    <p>{{ form.file }}</p>
+    <p>{{ form.codec.label }}</p>
+    <p>{{ form.codec }}</p>
+    <p>{{ form.radio.label }}</p>
+    <p>{{ form.radio }}</p>
+    <p>{{ form.submit() }}</p>
+</form>
+
+</body>
+</html>

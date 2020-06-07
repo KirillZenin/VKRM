@@ -19,41 +19,41 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: dbf2sql_proto.py:32
+#: dbf2sql_proto.py:34
 msgid "Files"
 msgstr "Файлы"
 
-#: dbf2sql_proto.py:33
+#: dbf2sql_proto.py:35
 msgid "Output Format"
 msgstr "Выходной Формат"
 
-#: dbf2sql_proto.py:34
+#: dbf2sql_proto.py:36
 msgid "Export to SQL dump file"
 msgstr "Преобразовать в SQL dump файл"
 
-#: dbf2sql_proto.py:34
+#: dbf2sql_proto.py:37
 msgid "Export to CSV file"
 msgstr "Преобразовать в CSV файл"
 
-#: dbf2sql_proto.py:36
+#: dbf2sql_proto.py:39
 msgid "Codec (Optional)"
 msgstr "Кодировка (Опционально)"
 
-#: dbf2sql_proto.py:37
+#: dbf2sql_proto.py:40
 msgid "Convert"
-msgstr "Преоразовать"
+msgstr "Преобразовать"
 
-#: dbf2sql_proto.py:91 dbf2sql_proto.py:96
+#: dbf2sql_proto.py:98 dbf2sql_proto.py:106
 msgid "DB Converter"
 msgstr "DB преобразователь"
 
-#: dbf2sql_proto.py:92
+#: dbf2sql_proto.py:99
 msgid ""
 "Error decoding DBF with given codec, or no codec is given and header does"
 " not have one"
 msgstr "Ошибка преобразования с указанной кодировкой, или кодировка не была указана и заголовок файлка не имеет указания кодировки"
 
-#: dbf2sql_proto.py:94
+#: dbf2sql_proto.py:101
 msgid "Consider using cp866 for DBs containing Russian"
 msgstr "Попробуйте кодировку cp866 для файлов, содержащих русский"
 

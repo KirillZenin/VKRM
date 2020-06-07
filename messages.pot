@@ -8,90 +8,90 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-05-28 18:58+0300\n"
+"POT-Creation-Date: 2020-06-07 21:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
+"Generated-By: Babel 2.8.0\n"
 
-#: dbf2sql_proto.py:31
+#: dbf2sql_proto.py:34
 msgid "Files"
 msgstr ""
 
-#: dbf2sql_proto.py:32
+#: dbf2sql_proto.py:35
 msgid "Output Format"
 msgstr ""
 
-#: dbf2sql_proto.py:33
+#: dbf2sql_proto.py:36
 msgid "Export to SQL dump file"
 msgstr ""
 
-#: dbf2sql_proto.py:33
+#: dbf2sql_proto.py:37
 msgid "Export to CSV file"
 msgstr ""
 
-#: dbf2sql_proto.py:35
+#: dbf2sql_proto.py:39
 msgid "Codec (Optional)"
 msgstr ""
 
-#: dbf2sql_proto.py:36
+#: dbf2sql_proto.py:40
 msgid "Convert"
 msgstr ""
 
-#: dbf2sql_proto.py:90 dbf2sql_proto.py:95
+#: dbf2sql_proto.py:98 dbf2sql_proto.py:106
 msgid "DB Converter"
 msgstr ""
 
-#: dbf2sql_proto.py:91
+#: dbf2sql_proto.py:99
 msgid ""
 "Error decoding DBF with given codec, or no codec is given and header does"
 " not have one"
 msgstr ""
 
-#: dbf2sql_proto.py:93
+#: dbf2sql_proto.py:101
 msgid "Consider using cp866 for DBs containing Russian"
 msgstr ""
 
-#: templates/index.html:51
+#: templates/index.html:57
 msgid "Error"
 msgstr ""
 
-#: templates/index.html:65
+#: templates/index.html:71
 msgid "Upload your DBF files to be converted to chosen format."
 msgstr ""
 
-#: templates/index.html:73
+#: templates/index.html:79
 msgid "Optional"
 msgstr ""
 
-#: templates/index.html:76
+#: templates/index.html:82
 msgid ""
 "Enter the codepage of the database or leave it blank and let us try to "
 "get it from the header."
 msgstr ""
 
-#: templates/index.html:86 templates/index.html:101
+#: templates/index.html:94 templates/index.html:113
 msgid "Pick desired output format."
 msgstr ""
 
-#: templates/index.html:97
+#: templates/index.html:106
 msgid "Usage:"
 msgstr ""
 
-#: templates/index.html:99
+#: templates/index.html:109
 msgid ""
 "Open file dialog and pick any number of DBF files (no more than 50M total"
 " for now)."
 msgstr ""
 
-#: templates/index.html:100
+#: templates/index.html:111
 msgid "(Optionally) Enter codepage of the original database."
 msgstr ""
 
-#: templates/index.html:102
+#: templates/index.html:114
 msgid "Press convert."
 msgstr ""
 

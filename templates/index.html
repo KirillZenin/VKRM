@@ -1,24 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>{{title}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sticky-footer-navbar/">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .list-group-item {
+            display: list-item;
+        }
+
+        .navbar {
+            text-align: center;
+            justify-content: center;
+        }
+
+    </style>
+    <link href="https://redfox.ooo:4433/static/sticky-footer-navbar.css" rel="stylesheet">
+
+    <title>{{ title }}</title>
 </head>
-<body>
-{% if err is defined %}
-<h1>{{ _('Error') }} : {{ err }}</h1>
-<p>{{ advice }}</p>
-{% endif %}
-<form action="" method="POST" enctype="multipart/form-data">
-    {{ form.hidden_tag() }}
-    <p>{{ form.file.label }}</p>
-    <p>{{ form.file }}</p>
-    <p>{{ form.codec.label }}</p>
-    <p>{{ form.codec }}</p>
-    <p>{{ form.radio.label }}</p>
-    <p>{{ form.radio }}</p>
-    <p>{{ form.submit() }}</p>
-</form>
+
+<body class="d-flex flex-column h-100">
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand">{{ title }}</a>
+    </nav>
+
+</header>
+<main role="main" class="flex-shrink-0">
+    <div class="container">
+
+        {% if err is defined %}
+        <div class="alert alert-danger" role="alert">
+            <h3>{{ _('Error') }} : {{ err }}</h3>
+            <div class="alert alert-info" role="alert">
+                <h4>{{ advice }}</h4>
+            </div>
+        </div>
+        {% endif %}
+        <form action="" method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <div class="custom-file">
+                    {{ form.file(class_="custom-file-input",id="customFile") }}
+                    {{ form.file.label(class_="custom-file-label",for_="customFile") }}
+                    <div class="text-justify">
+                        <div class="alert alert-secondary" role="alert">
+                            {{ _('Upload your DBF files to be converted to chosen format.') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form.codec.label(for_="codec_field") }}
+                {{ form.codec(class_="form-control", id="codec_field", placeholder=_('Optional')) }}
+                <div class="text-justify">
+                    <div class="alert alert-secondary" role="alert">
+                        {{ _('Enter the codepage of the database or leave it blank and let us try to get it from the
+                        header.') }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-check form-check-inline">
+                {{ form.radio.label(class_="form-check-label", for_="radios") }}
+                {{ form.radio(id="radios",class_="form-check-input") }}
+
+            </div>
+            <div class="text-justify">
+                <div class="alert alert-secondary" role="alert">
+                    {{ _('Pick desired output format.') }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form.submit(class_="btn btn-primary") }}
+            </div>
+    </div>
+    </form>
+    </div>
+    <div class="container">
+        <div class="text-justify">
+            <div class="alert alert-light" role="alert">
+                <h5>{{ _('Usage:') }}</h5>
+                <ol class="list-group">
+                    <li class="list-group-item">
+                        {{ _('Open file dialog and pick any number of DBF files (no more than 50M total for now).') }}
+                    </li>
+                    <li class="list-group-item">{{ _('(Optionally) Enter codepage of the original database.') }}
+                    </li>
+                    <li class="list-group-item">{{ _('Pick desired output format.') }}</li>
+                    <li class="list-group-item">{{ _('Press convert.') }}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer mt-auto py-3">
+    <div class="container">
+        <span class="text-muted">Made using Python 3, Flask, WTForms and Bootstrap.</span>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script>
+    window.jQuery || document.write('<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"><\/script>')
+</script>
+<script>
+        document.getElementById('customFile').onchange = function () {
+            var files = new Array();
+            for (let i = 0; i < this.files.length; i++) {
+                files.push(this.files.item(i).name);
+            }
+            this.labels[0].textContent = files.join(" & ");
+        }
+
+</script>
 
 </body>
+
 </html>
